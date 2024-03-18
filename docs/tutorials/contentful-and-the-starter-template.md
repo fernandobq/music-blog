@@ -9,7 +9,6 @@ Alternatively, to immediately start the auto installation of this template after
 please follow this link:
 [https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog](https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs).
 
-
 $~$
 
 ## Begin your journey with Contentful and the Blog Starter Template
@@ -78,7 +77,6 @@ You will be directed to the `Homepage` entry editor, where you will see the stru
 
 - The SEO metadata (title, description, meta tags...).
 - A featured blog post
-  
 
 1. Edit the `Featured blog post` field by selecting a different blog post to feature on the homepage, the changes are saved automatically.
 2. Open the preview to see the changes, by clicking on the `Open preview` button in the right entry sidebar.
