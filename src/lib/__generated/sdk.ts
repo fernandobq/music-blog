@@ -1,6 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
 import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -1384,37 +1385,78 @@ export type CfPageBlogPostNestedFilter = {
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type AuthorFieldsFragment = { __typename: 'ComponentAuthor', name?: string | null, sys: { __typename?: 'Sys', id: string }, avatar?: (
+export type AuthorFieldsFragment = {
+  __typename: 'ComponentAuthor', name?: string | null, sys: { __typename?: 'Sys', id: string }, avatar?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
-  ) | null };
+    ) | null
+};
 
-export type ImageFieldsFragment = { __typename: 'Asset', title?: string | null, description?: string | null, width?: number | null, height?: number | null, url?: string | null, contentType?: string | null, sys: { __typename?: 'Sys', id: string } };
+export type ImageFieldsFragment = {
+  __typename: 'Asset',
+  title?: string | null,
+  description?: string | null,
+  width?: number | null,
+  height?: number | null,
+  url?: string | null,
+  contentType?: string | null,
+  sys: { __typename?: 'Sys', id: string }
+};
 
-export type ReferencePageBlogPostFieldsFragment = { __typename: 'PageBlogPost', slug?: string | null, publishedDate?: any | null, title?: string | null, shortDescription?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, author?: (
+export type ReferencePageBlogPostFieldsFragment = {
+  __typename: 'PageBlogPost',
+  slug?: string | null,
+  publishedDate?: any | null,
+  title?: string | null,
+  shortDescription?: string | null,
+  sys: { __typename?: 'Sys', id: string, spaceId: string },
+  author?: (
     { __typename?: 'ComponentAuthor' }
     & AuthorFieldsFragment
-  ) | null, featuredImage?: (
+    ) | null,
+  featuredImage?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
-  ) | null };
+    ) | null
+};
 
-export type PageBlogPostFieldsFragment = { __typename: 'PageBlogPost', internalName?: string | null, slug?: string | null, publishedDate?: any | null, title?: string | null, shortDescription?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
+export type PageBlogPostFieldsFragment = {
+  __typename: 'PageBlogPost',
+  internalName?: string | null,
+  slug?: string | null,
+  publishedDate?: any | null,
+  title?: string | null,
+  shortDescription?: string | null,
+  sys: { __typename?: 'Sys', id: string, spaceId: string },
+  seoFields?: (
     { __typename?: 'ComponentSeo' }
     & SeoFieldsFragment
-  ) | null, author?: (
+    ) | null,
+  author?: (
     { __typename?: 'ComponentAuthor' }
     & AuthorFieldsFragment
-  ) | null, featuredImage?: (
+    ) | null,
+  featuredImage?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
-  ) | null, content?: { __typename?: 'PageBlogPostContent', json: any, links: { __typename?: 'PageBlogPostContentLinks', entries: { __typename?: 'PageBlogPostContentEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
+    ) | null,
+  content?: {
+    __typename?: 'PageBlogPostContent', json: any, links: {
+      __typename?: 'PageBlogPostContentLinks', entries: {
+        __typename?: 'PageBlogPostContentEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
           { __typename?: 'ComponentRichImage' }
           & RichImageFieldsFragment
-        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | null> } } } | null, relatedBlogPostsCollection?: { __typename?: 'PageBlogPostRelatedBlogPostsCollection', items: Array<(
+          ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | null>
+      }
+    }
+  } | null,
+  relatedBlogPostsCollection?: {
+    __typename?: 'PageBlogPostRelatedBlogPostsCollection', items: Array<(
       { __typename?: 'PageBlogPost' }
       & ReferencePageBlogPostFieldsFragment
-    ) | null> } | null };
+      ) | null>
+  } | null
+};
 
 export type PageBlogPostQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -1423,10 +1465,14 @@ export type PageBlogPostQueryVariables = Exact<{
 }>;
 
 
-export type PageBlogPostQuery = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<(
+export type PageBlogPostQuery = {
+  __typename?: 'Query', pageBlogPostCollection?: {
+    __typename?: 'PageBlogPostCollection', items: Array<(
       { __typename?: 'PageBlogPost' }
       & PageBlogPostFieldsFragment
-    ) | null> } | null };
+      ) | null>
+  } | null
+};
 
 export type PageBlogPostCollectionQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
@@ -1437,18 +1483,28 @@ export type PageBlogPostCollectionQueryVariables = Exact<{
 }>;
 
 
-export type PageBlogPostCollectionQuery = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<(
+export type PageBlogPostCollectionQuery = {
+  __typename?: 'Query', pageBlogPostCollection?: {
+    __typename?: 'PageBlogPostCollection', items: Array<(
       { __typename?: 'PageBlogPost' }
       & PageBlogPostFieldsFragment
-    ) | null> } | null };
+      ) | null>
+  } | null
+};
 
-export type PageLandingFieldsFragment = { __typename: 'PageLanding', internalName?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
+export type PageLandingFieldsFragment = {
+  __typename: 'PageLanding',
+  internalName?: string | null,
+  sys: { __typename?: 'Sys', id: string, spaceId: string },
+  seoFields?: (
     { __typename?: 'ComponentSeo' }
     & SeoFieldsFragment
-  ) | null, featuredBlogPost?: (
+    ) | null,
+  featuredBlogPost?: (
     { __typename?: 'PageBlogPost' }
     & ReferencePageBlogPostFieldsFragment
-  ) | null };
+    ) | null
+};
 
 export type PageLandingQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
@@ -1456,10 +1512,15 @@ export type PageLandingQueryVariables = Exact<{
 }>;
 
 
-export type PageLandingQuery = { __typename?: 'Query', pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<(
+export type PageLandingQuery = {
+  __typename?: 'Query', pageLandingCollection?: {
+    __typename?: 'PageLandingCollection', items: Array<(
       { __typename?: 'PageLanding' }
       & PageLandingFieldsFragment
-    ) | null> } | null };
+      ) | null>
+  } | null
+};
+
 
 export type PageLandingCollectionQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['String']>;
@@ -1467,22 +1528,57 @@ export type PageLandingCollectionQueryVariables = Exact<{
 }>;
 
 
-export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<(
+export type PageLandingCollectionQuery = {
+  __typename?: 'Query', pageLandingCollection?: {
+    __typename?: 'PageLandingCollection', items: Array<(
       { __typename?: 'PageLanding' }
       & PageLandingFieldsFragment
-    ) | null> } | null };
+      ) | null>
+  } | null
+};
 
-export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', internalName?: string | null, caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
+export type RichImageFieldsFragment = {
+  __typename: 'ComponentRichImage',
+  internalName?: string | null,
+  caption?: string | null,
+  fullWidth?: boolean | null,
+  sys: { __typename?: 'Sys', id: string },
+  image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
-  ) | null };
+    ) | null
+};
 
-export type SeoFieldsFragment = { __typename: 'ComponentSeo', pageTitle?: string | null, pageDescription?: string | null, canonicalUrl?: string | null, nofollow?: boolean | null, noindex?: boolean | null, shareImagesCollection?: { __typename?: 'AssetCollection', items: Array<(
+export type SeoFieldsFragment = {
+  __typename: 'ComponentSeo',
+  pageTitle?: string | null,
+  pageDescription?: string | null,
+  canonicalUrl?: string | null,
+  nofollow?: boolean | null,
+  noindex?: boolean | null,
+  shareImagesCollection?: {
+    __typename?: 'AssetCollection', items: Array<(
       { __typename?: 'Asset' }
       & ImageFieldsFragment
-    ) | null> } | null };
+      ) | null>
+  } | null
+};
 
-export type SitemapPagesFieldsFragment = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<{ __typename?: 'PageBlogPost', slug?: string | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null, pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<{ __typename?: 'PageLanding', sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
+export type SitemapPagesFieldsFragment = {
+  __typename?: 'Query',
+  pageBlogPostCollection?: {
+    __typename?: 'PageBlogPostCollection',
+    items: Array<{
+      __typename?: 'PageBlogPost',
+      slug?: string | null,
+      sys: { __typename?: 'Sys', publishedAt?: any | null }
+    } | null>
+  } | null,
+  pageLandingCollection?: {
+    __typename?: 'PageLandingCollection',
+    items: Array<{ __typename?: 'PageLanding', sys: { __typename?: 'Sys', publishedAt?: any | null } } | null>
+  } | null
+};
 
 export type SitemapPagesQueryVariables = Exact<{
   locale: Scalars['String'];
@@ -1492,248 +1588,249 @@ export type SitemapPagesQueryVariables = Exact<{
 export type SitemapPagesQuery = (
   { __typename?: 'Query' }
   & SitemapPagesFieldsFragment
-);
+  );
 
 export const ImageFieldsFragmentDoc = gql`
-    fragment ImageFields on Asset {
-  __typename
-  sys {
-    id
+  fragment ImageFields on Asset {
+    __typename
+    sys {
+      id
+    }
+    title
+    description
+    width
+    height
+    url
+    contentType
   }
-  title
-  description
-  width
-  height
-  url
-  contentType
-}
-    `;
+`;
 export const SeoFieldsFragmentDoc = gql`
-    fragment SeoFields on ComponentSeo {
-  __typename
-  pageTitle
-  pageDescription
-  canonicalUrl
-  nofollow
-  noindex
-  shareImagesCollection(limit: 3, locale: $locale) {
-    items {
+  fragment SeoFields on ComponentSeo {
+    __typename
+    pageTitle
+    pageDescription
+    canonicalUrl
+    nofollow
+    noindex
+    shareImagesCollection(limit: 3, locale: $locale) {
+      items {
+        ...ImageFields
+      }
+    }
+  }
+`;
+export const AuthorFieldsFragmentDoc = gql`
+  fragment AuthorFields on ComponentAuthor {
+    __typename
+    sys {
+      id
+    }
+    name
+    avatar {
       ...ImageFields
     }
   }
-}
-    `;
-export const AuthorFieldsFragmentDoc = gql`
-    fragment AuthorFields on ComponentAuthor {
-  __typename
-  sys {
-    id
-  }
-  name
-  avatar {
-    ...ImageFields
-  }
-}
-    `;
+`;
 export const RichImageFieldsFragmentDoc = gql`
-    fragment RichImageFields on ComponentRichImage {
-  __typename
-  internalName
-  sys {
-    id
+  fragment RichImageFields on ComponentRichImage {
+    __typename
+    internalName
+    sys {
+      id
+    }
+    image {
+      ...ImageFields
+    }
+    caption
+    fullWidth
   }
-  image {
-    ...ImageFields
-  }
-  caption
-  fullWidth
-}
-    `;
+`;
 export const ReferencePageBlogPostFieldsFragmentDoc = gql`
-    fragment ReferencePageBlogPostFields on PageBlogPost {
-  __typename
-  sys {
-    id
-    spaceId
+  fragment ReferencePageBlogPostFields on PageBlogPost {
+    __typename
+    sys {
+      id
+      spaceId
+    }
+    slug
+    author {
+      ...AuthorFields
+    }
+    publishedDate
+    title
+    shortDescription
+    featuredImage {
+      ...ImageFields
+    }
   }
-  slug
-  author {
-    ...AuthorFields
-  }
-  publishedDate
-  title
-  shortDescription
-  featuredImage {
-    ...ImageFields
-  }
-}
-    `;
+`;
 export const PageBlogPostFieldsFragmentDoc = gql`
-    fragment PageBlogPostFields on PageBlogPost {
-  __typename
-  sys {
-    id
-    spaceId
+  fragment PageBlogPostFields on PageBlogPost {
+    __typename
+    sys {
+      id
+      spaceId
+    }
+    internalName
+    seoFields {
+      ...SeoFields
+    }
+    slug
+    author {
+      ...AuthorFields
+    }
+    publishedDate
+    title
+    shortDescription
+    featuredImage {
+      ...ImageFields
+    }
+    content {
+      json
+      links {
+        entries {
+          block {
+            ...RichImageFields
+          }
+        }
+      }
+    }
+    relatedBlogPostsCollection(limit: 2) {
+      items {
+        ...ReferencePageBlogPostFields
+      }
+    }
   }
-  internalName
-  seoFields {
-    ...SeoFields
+`;
+export const PageLandingFieldsFragmentDoc = gql`
+  fragment PageLandingFields on PageLanding {
+    __typename
+    sys {
+      id
+      spaceId
+    }
+    internalName
+    seoFields {
+      ...SeoFields
+    }
+    featuredBlogPost {
+      ...ReferencePageBlogPostFields
+    }
   }
-  slug
-  author {
-    ...AuthorFields
-  }
-  publishedDate
-  title
-  shortDescription
-  featuredImage {
-    ...ImageFields
-  }
-  content {
-    json
-    links {
-      entries {
-        block {
-          ...RichImageFields
+`;
+export const SitemapPagesFieldsFragmentDoc = gql`
+  fragment sitemapPagesFields on Query {
+    pageBlogPostCollection(limit: 100, locale: $locale) {
+      items {
+        slug
+        sys {
+          publishedAt
+        }
+      }
+    }
+    pageLandingCollection(limit: 1, locale: $locale) {
+      items {
+        sys {
+          publishedAt
         }
       }
     }
   }
-  relatedBlogPostsCollection(limit: 2) {
-    items {
-      ...ReferencePageBlogPostFields
-    }
-  }
-}
-    `;
-export const PageLandingFieldsFragmentDoc = gql`
-    fragment PageLandingFields on PageLanding {
-  __typename
-  sys {
-    id
-    spaceId
-  }
-  internalName
-  seoFields {
-    ...SeoFields
-  }
-  featuredBlogPost {
-    ...ReferencePageBlogPostFields
-  }
-}
-    `;
-export const SitemapPagesFieldsFragmentDoc = gql`
-    fragment sitemapPagesFields on Query {
-  pageBlogPostCollection(limit: 100, locale: $locale) {
-    items {
-      slug
-      sys {
-        publishedAt
-      }
-    }
-  }
-  pageLandingCollection(limit: 1, locale: $locale) {
-    items {
-      sys {
-        publishedAt
-      }
-    }
-  }
-}
-    `;
+`;
 export const PageBlogPostDocument = gql`
-    query pageBlogPost($slug: String!, $locale: String, $preview: Boolean) {
-  pageBlogPostCollection(
-    limit: 1
-    where: {slug: $slug}
-    locale: $locale
-    preview: $preview
-  ) {
-    items {
-      ...PageBlogPostFields
+  query pageBlogPost($slug: String!, $locale: String, $preview: Boolean) {
+    pageBlogPostCollection(
+      limit: 1
+      where: {slug: $slug}
+      locale: $locale
+      preview: $preview
+    ) {
+      items {
+        ...PageBlogPostFields
+      }
     }
   }
-}
-    ${PageBlogPostFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${AuthorFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
+  ${PageBlogPostFieldsFragmentDoc}
+  ${SeoFieldsFragmentDoc}
+  ${ImageFieldsFragmentDoc}
+  ${AuthorFieldsFragmentDoc}
+  ${RichImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageBlogPostCollectionDocument = gql`
-    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
-  pageBlogPostCollection(
-    limit: $limit
-    locale: $locale
-    preview: $preview
-    order: $order
-    where: $where
-  ) {
-    items {
-      ...PageBlogPostFields
+  query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
+    pageBlogPostCollection(
+      limit: $limit
+      locale: $locale
+      preview: $preview
+      order: $order
+      where: $where
+    ) {
+      items {
+        ...PageBlogPostFields
+      }
     }
   }
-}
-    ${PageBlogPostFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${AuthorFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
+  ${PageBlogPostFieldsFragmentDoc}
+  ${SeoFieldsFragmentDoc}
+  ${ImageFieldsFragmentDoc}
+  ${AuthorFieldsFragmentDoc}
+  ${RichImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageLandingDocument = gql`
-    query pageLanding($locale: String, $preview: Boolean) {
-  pageLandingCollection(limit: 1, locale: $locale, preview: $preview) {
-    items {
-      ...PageLandingFields
+  query pageLanding($locale: String, $preview: Boolean) {
+    pageLandingCollection(limit: 1, locale: $locale, preview: $preview) {
+      items {
+        ...PageLandingFields
+      }
     }
   }
-}
-    ${PageLandingFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${ReferencePageBlogPostFieldsFragmentDoc}
+  ${PageLandingFieldsFragmentDoc}
+  ${SeoFieldsFragmentDoc}
+  ${ImageFieldsFragmentDoc}
+  ${ReferencePageBlogPostFieldsFragmentDoc}
 ${AuthorFieldsFragmentDoc}`;
 export const PageLandingCollectionDocument = gql`
-    query pageLandingCollection($locale: String, $preview: Boolean) {
-  pageLandingCollection(limit: 100, locale: $locale, preview: $preview) {
-    items {
-      ...PageLandingFields
+  query pageLandingCollection($locale: String, $preview: Boolean) {
+    pageLandingCollection(limit: 100, locale: $locale, preview: $preview) {
+      items {
+        ...PageLandingFields
+      }
     }
   }
-}
-    ${PageLandingFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${ReferencePageBlogPostFieldsFragmentDoc}
+  ${PageLandingFieldsFragmentDoc}
+  ${SeoFieldsFragmentDoc}
+  ${ImageFieldsFragmentDoc}
+  ${ReferencePageBlogPostFieldsFragmentDoc}
 ${AuthorFieldsFragmentDoc}`;
 export const SitemapPagesDocument = gql`
-    query sitemapPages($locale: String!) {
-  ...sitemapPagesFields
-}
-    ${SitemapPagesFieldsFragmentDoc}`;
+  query sitemapPages($locale: String!) {
+    ...sitemapPagesFields
+  }
+${SitemapPagesFieldsFragmentDoc}`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?: Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
 
 const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    pageBlogPost(variables: PageBlogPostQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageBlogPostQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageBlogPostQuery>(PageBlogPostDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageBlogPost', 'query');
+    pageBlogPost(variables: PageBlogPostQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<PageBlogPostQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageBlogPostQuery>(PageBlogPostDocument, variables, { ...requestHeaders, ...wrappedRequestHeaders }), 'pageBlogPost', 'query');
     },
-    pageBlogPostCollection(variables?: PageBlogPostCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageBlogPostCollectionQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageBlogPostCollectionQuery>(PageBlogPostCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageBlogPostCollection', 'query');
+    pageBlogPostCollection(variables?: PageBlogPostCollectionQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<PageBlogPostCollectionQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageBlogPostCollectionQuery>(PageBlogPostCollectionDocument, variables, { ...requestHeaders, ...wrappedRequestHeaders }), 'pageBlogPostCollection', 'query');
     },
-    pageLanding(variables?: PageLandingQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingQuery>(PageLandingDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLanding', 'query');
+    pageLanding(variables?: PageLandingQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<PageLandingQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingQuery>(PageLandingDocument, variables, { ...requestHeaders, ...wrappedRequestHeaders }), 'pageLanding', 'query');
     },
-    pageLandingCollection(variables?: PageLandingCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingCollectionQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingCollectionQuery>(PageLandingCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLandingCollection', 'query');
+    pageLandingCollection(variables?: PageLandingCollectionQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<PageLandingCollectionQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingCollectionQuery>(PageLandingCollectionDocument, variables, { ...requestHeaders, ...wrappedRequestHeaders }), 'pageLandingCollection', 'query');
     },
-    sitemapPages(variables: SitemapPagesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SitemapPagesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<SitemapPagesQuery>(SitemapPagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'sitemapPages', 'query');
-    }
+    sitemapPages(variables: SitemapPagesQueryVariables, requestHeaders?: Dom.RequestInit['headers']): Promise<SitemapPagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<SitemapPagesQuery>(SitemapPagesDocument, variables, { ...requestHeaders, ...wrappedRequestHeaders }), 'sitemapPages', 'query');
+    },
   };
 }
+
 export type Sdk = ReturnType<typeof getSdk>;

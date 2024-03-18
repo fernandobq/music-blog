@@ -356,7 +356,7 @@ input ContentfulMetadataTagsFilter {
 
 """
 Represents a tag entity for finding and organizing content easily.
-    Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
 """
 type ContentfulTag {
   id: String
@@ -365,9 +365,9 @@ type ContentfulTag {
 
 """
 A date-time string at UTC, such as 2007-12-03T10:15:30Z,
-    compliant with the 'date-time' format outlined in section 5.6 of
-    the RFC 3339 profile of the ISO 8601 standard for representation
-    of dates and times using the Gregorian calendar.
+compliant with the 'date-time' format outlined in section 5.6 of
+the RFC 3339 profile of the ISO 8601 standard for representation
+of dates and times using the Gregorian calendar.
 """
 scalar DateTime
 
@@ -417,9 +417,9 @@ enum ImageFormat {
 
   """
   Progressive JPG format stores multiple passes of an image in progressively higher detail.
-          When a progressive image is loading, the viewer will first see a lower quality pixelated version which
-          will gradually improve in detail, until the image is fully downloaded. This is to display an image as
-          early as possible to make the layout look as designed.
+  When a progressive image is loading, the viewer will first see a lower quality pixelated version which
+  will gradually improve in detail, until the image is fully downloaded. This is to display an image as
+  early as possible to make the layout look as designed.
   """
   JPG_PROGRESSIVE
 
@@ -428,7 +428,7 @@ enum ImageFormat {
 
   """
   8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
-          The 8-bit PNG format is mostly used for simple images, such as icons or logos.
+  The 8-bit PNG format is mostly used for simple images, such as icons or logos.
   """
   PNG8
 
@@ -487,7 +487,7 @@ enum ImageResizeStrategy {
 
   """
   Resizes the image to the specified dimensions, padding the image if needed.
-          Uses desired background color as padding color.
+  Uses desired background color as padding color.
   """
   PAD
 
@@ -503,15 +503,15 @@ enum ImageResizeStrategy {
 input ImageTransformOptions {
   """
   Desired background color, used with corner radius or `PAD` resize strategy.
-          Defaults to transparent (for `PNG`, `PNG8` and `WEBP`) or white (for `JPG` and `JPG_PROGRESSIVE`).
+  Defaults to transparent (for `PNG`, `PNG8` and `WEBP`) or white (for `JPG` and `JPG_PROGRESSIVE`).
   """
   backgroundColor: HexColor
 
   """
   Desired corner radius in pixels.
-          Results in an image with rounded corners (pass `-1` for a full circle/ellipse).
-          Defaults to `0`. Uses desired background color as padding color,
-          unless the format is `JPG` or `JPG_PROGRESSIVE` and resize strategy is `PAD`, then defaults to white.
+  Results in an image with rounded corners (pass `-1` for a full circle/ellipse).
+  Defaults to `0`. Uses desired background color as padding color,
+  unless the format is `JPG` or `JPG_PROGRESSIVE` and resize strategy is `PAD`, then defaults to white.
   """
   cornerRadius: Int
 
@@ -523,7 +523,7 @@ input ImageTransformOptions {
 
   """
   Desired quality of the image in percents.
-          Used for `PNG8`, `JPG`, `JPG_PROGRESSIVE` and `WEBP` formats.
+  Used for `PNG8`, `JPG`, `JPG_PROGRESSIVE` and `WEBP` formats.
   """
   quality: Quality
 
