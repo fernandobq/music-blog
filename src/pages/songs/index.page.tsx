@@ -1,7 +1,5 @@
 const SongsPage = () => {
-  return (
-    <div>Songs</div>
-  )
-}
+  return <div>Songs</div>;
+};
 
-export default SongsPage
+export default SongsPage;
