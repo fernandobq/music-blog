@@ -9,13 +9,6 @@ fragment SongFields on Song {
 
   content {
     json
-    links {
-      entries {
-        block {
-          ...RichImageFields
-        }
-      }
-    }
   }
 }
 

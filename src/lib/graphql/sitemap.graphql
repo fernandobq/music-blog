@@ -1,14 +1,7 @@
 fragment sitemapPagesFields on Query {
-  pageBlogPostCollection(limit: 100, locale: $locale) {
+  songCollection(limit: 100, locale: $locale) {
     items {
       slug
-      sys {
-        publishedAt
-      }
-    }
-  }
-  pageLandingCollection(limit: 1, locale: $locale) {
-    items {
       sys {
         publishedAt
       }
