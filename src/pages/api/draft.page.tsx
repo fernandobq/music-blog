@@ -34,13 +34,13 @@ export default async (req, res) => {
   // Check for a slug, if no slug is passed we assume we need to redirect to the root
   if (slug) {
     try {
-      const blogPageData = await previewClient.pageBlogPost({
+      const blogPageData = await previewClient.song({
         slug,
         locale,
         preview: true,
       });
 
-      const blogPost = blogPageData.pageBlogPostCollection?.items[0];
+      const blogPost = blogPageData.songCollection?.items[0];
 
       if (!blogPost) {
         throw Error();
@@ -53,25 +53,6 @@ export default async (req, res) => {
       res.redirect(`/${locale ? `${locale}/` : ''}${blogPost?.slug}`);
     } catch {
       return res.status(401).json({ message: 'Invalid slug' });
-    }
-  } else {
-    try {
-      const landingPageData = await previewClient.pageLanding({
-        locale,
-        preview: true,
-      });
-
-      if (!landingPageData) {
-        throw Error();
-      }
-
-      // Enable draft mode by setting the cookies
-      enableDraftMode(res);
-
-      // Redirect to the root
-      res.redirect(`/${locale ? `${locale}` : ''}`);
-    } catch {
-      return res.status(401).json({ message: 'Page not found' });
     }
   }
 };

@@ -3,8 +3,6 @@ import path from 'path';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
-import { SeoFieldsFragment } from '@src/lib/__generated/sdk';
-
 const generateUrl = (locale: string, slug: string) =>
   new URL(path.join(locale, slug), process.env.NEXT_PUBLIC_BASE_URL!).toString();
 
@@ -15,7 +13,7 @@ export const SeoFields = ({
   nofollow,
   canonicalUrl,
   shareImagesCollection,
-}: SeoFieldsFragment) => {
+}: any) => {
   const { locale, locales, asPath } = useRouter();
 
   const url = generateUrl(locale || '', asPath);
