@@ -1,0 +1,13 @@
+query songCollection(
+  $locale: String
+  $preview: Boolean
+  $limit: Int
+  $order: [SongOrder]
+  $where: SongFilter
+) {
+  songCollection(limit: $limit, locale: $locale, preview: $preview, order: $order, where: $where) {
+    items {
+      ...SongFields
+    }
+  }
+}

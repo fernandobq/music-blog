@@ -1,0 +1,28 @@
+fragment SongFields on Song {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  internalName
+  slug
+
+  content {
+    json
+    links {
+      entries {
+        block {
+          ...RichImageFields
+        }
+      }
+    }
+  }
+}
+
+query song($slug: String!, $locale: String, $preview: Boolean) {
+  songCollection(limit: 1, where: { slug: $slug }, locale: $locale, preview: $preview) {
+    items {
+      ...SongFields
+    }
+  }
+}
