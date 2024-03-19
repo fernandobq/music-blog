@@ -20,15 +20,152 @@ export type Scalars = {
   Quality: any;
 };
 
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type Album = Entry & {
+  __typename?: 'Album';
+  artist?: Maybe<Artist>;
+  contentfulMetadata: ContentfulMetadata;
+  internalName?: Maybe<Scalars['String']>;
+  linkedFrom?: Maybe<AlbumLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
+  releaseDate?: Maybe<Scalars['DateTime']>;
+  slug?: Maybe<Scalars['String']>;
+  sys: Sys;
+};
+
+
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type AlbumArtistArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<ArtistFilter>;
+};
+
+
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type AlbumInternalNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type AlbumLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type AlbumNameArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type AlbumReleaseDateArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+
+/** Album of the song [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/album) */
+export type AlbumSlugArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+};
+
+export type AlbumCollection = {
+  __typename?: 'AlbumCollection';
+  items: Array<Maybe<Album>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type AlbumFilter = {
+  AND?: InputMaybe<Array<InputMaybe<AlbumFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<AlbumFilter>>>;
+  artist?: InputMaybe<CfArtistNestedFilter>;
+  artist_exists?: InputMaybe<Scalars['Boolean']>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  internalName?: InputMaybe<Scalars['String']>;
+  internalName_contains?: InputMaybe<Scalars['String']>;
+  internalName_exists?: InputMaybe<Scalars['Boolean']>;
+  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  internalName_not?: InputMaybe<Scalars['String']>;
+  internalName_not_contains?: InputMaybe<Scalars['String']>;
+  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  releaseDate?: InputMaybe<Scalars['DateTime']>;
+  releaseDate_exists?: InputMaybe<Scalars['Boolean']>;
+  releaseDate_gt?: InputMaybe<Scalars['DateTime']>;
+  releaseDate_gte?: InputMaybe<Scalars['DateTime']>;
+  releaseDate_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  releaseDate_lt?: InputMaybe<Scalars['DateTime']>;
+  releaseDate_lte?: InputMaybe<Scalars['DateTime']>;
+  releaseDate_not?: InputMaybe<Scalars['DateTime']>;
+  releaseDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  slug?: InputMaybe<Scalars['String']>;
+  slug_contains?: InputMaybe<Scalars['String']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not?: InputMaybe<Scalars['String']>;
+  slug_not_contains?: InputMaybe<Scalars['String']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type AlbumLinkingCollections = {
+  __typename?: 'AlbumLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type AlbumLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum AlbumOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  ReleaseDateAsc = 'releaseDate_ASC',
+  ReleaseDateDesc = 'releaseDate_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
 /** This is the artist page information, and actual artist information [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/artist) */
 export type Artist = Entry & {
   __typename?: 'Artist';
+  content?: Maybe<ArtistContent>;
   contentfulMetadata: ContentfulMetadata;
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<ArtistLinkingCollections>;
   name?: Maybe<Scalars['String']>;
   songsCollection?: Maybe<ArtistSongsCollection>;
   sys: Sys;
+};
+
+
+/** This is the artist page information, and actual artist information [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/artist) */
+export type ArtistContentArgs = {
+  locale?: InputMaybe<Scalars['String']>;
 };
 
 
@@ -68,9 +205,60 @@ export type ArtistCollection = {
   total: Scalars['Int'];
 };
 
+export type ArtistContent = {
+  __typename?: 'ArtistContent';
+  json: Scalars['JSON'];
+  links: ArtistContentLinks;
+};
+
+export type ArtistContentAssets = {
+  __typename?: 'ArtistContentAssets';
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type ArtistContentEntries = {
+  __typename?: 'ArtistContentEntries';
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type ArtistContentLinks = {
+  __typename?: 'ArtistContentLinks';
+  assets: ArtistContentAssets;
+  entries: ArtistContentEntries;
+  resources: ArtistContentResources;
+};
+
+export type ArtistContentResources = {
+  __typename?: 'ArtistContentResources';
+  block: Array<ArtistContentResourcesBlock>;
+  hyperlink: Array<ArtistContentResourcesHyperlink>;
+  inline: Array<ArtistContentResourcesInline>;
+};
+
+export type ArtistContentResourcesBlock = ResourceLink & {
+  __typename?: 'ArtistContentResourcesBlock';
+  sys: ResourceSys;
+};
+
+export type ArtistContentResourcesHyperlink = ResourceLink & {
+  __typename?: 'ArtistContentResourcesHyperlink';
+  sys: ResourceSys;
+};
+
+export type ArtistContentResourcesInline = ResourceLink & {
+  __typename?: 'ArtistContentResourcesInline';
+  sys: ResourceSys;
+};
+
 export type ArtistFilter = {
   AND?: InputMaybe<Array<InputMaybe<ArtistFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ArtistFilter>>>;
+  content_contains?: InputMaybe<Scalars['String']>;
+  content_exists?: InputMaybe<Scalars['Boolean']>;
+  content_not_contains?: InputMaybe<Scalars['String']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   internalName?: InputMaybe<Scalars['String']>;
   internalName_contains?: InputMaybe<Scalars['String']>;
@@ -93,8 +281,17 @@ export type ArtistFilter = {
 
 export type ArtistLinkingCollections = {
   __typename?: 'ArtistLinkingCollections';
+  albumCollection?: Maybe<AlbumCollection>;
   entryCollection?: Maybe<EntryCollection>;
-  songCollection?: Maybe<SongCollection>;
+};
+
+
+export type ArtistLinkingCollectionsAlbumCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<ArtistLinkingCollectionsAlbumCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -105,18 +302,13 @@ export type ArtistLinkingCollectionsEntryCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-
-export type ArtistLinkingCollectionsSongCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ArtistLinkingCollectionsSongCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum ArtistLinkingCollectionsSongCollectionOrder {
+export enum ArtistLinkingCollectionsAlbumCollectionOrder {
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  ReleaseDateAsc = 'releaseDate_ASC',
+  ReleaseDateDesc = 'releaseDate_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -126,9 +318,7 @@ export enum ArtistLinkingCollectionsSongCollectionOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TextTestAsc = 'textTest_ASC',
-  TextTestDesc = 'textTest_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
 export enum ArtistOrder {
@@ -157,6 +347,8 @@ export type ArtistSongsCollection = {
 export enum ArtistSongsCollectionOrder {
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -166,9 +358,7 @@ export enum ArtistSongsCollectionOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TextTestAsc = 'textTest_ASC',
-  TextTestDesc = 'textTest_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
 /** Represents a binary file in a space. An asset can be any file type. */
@@ -321,47 +511,11 @@ export type AssetFilter = {
 
 export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
-  componentAuthorCollection?: Maybe<ComponentAuthorCollection>;
-  componentRichImageCollection?: Maybe<ComponentRichImageCollection>;
-  componentSeoCollection?: Maybe<ComponentSeoCollection>;
   entryCollection?: Maybe<EntryCollection>;
-  pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
-};
-
-
-export type AssetLinkingCollectionsComponentAuthorCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type AssetLinkingCollectionsComponentRichImageCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type AssetLinkingCollectionsComponentSeoCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type AssetLinkingCollectionsPageBlogPostCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
@@ -389,437 +543,6 @@ export enum AssetOrder {
   UrlDesc = 'url_DESC',
   WidthAsc = 'width_ASC',
   WidthDesc = 'width_DESC'
-}
-
-/** To have author-related properties [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentAuthor) */
-export type ComponentAuthor = Entry & {
-  __typename?: 'ComponentAuthor';
-  avatar?: Maybe<Asset>;
-  contentfulMetadata: ContentfulMetadata;
-  internalName?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<ComponentAuthorLinkingCollections>;
-  name?: Maybe<Scalars['String']>;
-  sys: Sys;
-};
-
-
-/** To have author-related properties [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentAuthor) */
-export type ComponentAuthorAvatarArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** To have author-related properties [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentAuthor) */
-export type ComponentAuthorInternalNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have author-related properties [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentAuthor) */
-export type ComponentAuthorLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** To have author-related properties [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentAuthor) */
-export type ComponentAuthorNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-export type ComponentAuthorCollection = {
-  __typename?: 'ComponentAuthorCollection';
-  items: Array<Maybe<ComponentAuthor>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type ComponentAuthorFilter = {
-  AND?: InputMaybe<Array<InputMaybe<ComponentAuthorFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<ComponentAuthorFilter>>>;
-  avatar_exists?: InputMaybe<Scalars['Boolean']>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  name?: InputMaybe<Scalars['String']>;
-  name_contains?: InputMaybe<Scalars['String']>;
-  name_exists?: InputMaybe<Scalars['Boolean']>;
-  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  name_not?: InputMaybe<Scalars['String']>;
-  name_not_contains?: InputMaybe<Scalars['String']>;
-  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type ComponentAuthorLinkingCollections = {
-  __typename?: 'ComponentAuthorLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
-};
-
-
-export type ComponentAuthorLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type ComponentAuthorLinkingCollectionsPageBlogPostCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ComponentAuthorLinkingCollectionsPageBlogPostCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum ComponentAuthorLinkingCollectionsPageBlogPostCollectionOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  PublishedDateAsc = 'publishedDate_ASC',
-  PublishedDateDesc = 'publishedDate_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-export enum ComponentAuthorOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  NameAsc = 'name_ASC',
-  NameDesc = 'name_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-/** To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentRichImage) */
-export type ComponentRichImage = Entry & {
-  __typename?: 'ComponentRichImage';
-  caption?: Maybe<Scalars['String']>;
-  contentfulMetadata: ContentfulMetadata;
-  fullWidth?: Maybe<Scalars['Boolean']>;
-  image?: Maybe<Asset>;
-  internalName?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<ComponentRichImageLinkingCollections>;
-  sys: Sys;
-};
-
-
-/** To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentRichImage) */
-export type ComponentRichImageCaptionArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentRichImage) */
-export type ComponentRichImageFullWidthArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentRichImage) */
-export type ComponentRichImageImageArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentRichImage) */
-export type ComponentRichImageInternalNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To describe an image used in rich text fields [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentRichImage) */
-export type ComponentRichImageLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type ComponentRichImageCollection = {
-  __typename?: 'ComponentRichImageCollection';
-  items: Array<Maybe<ComponentRichImage>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type ComponentRichImageFilter = {
-  AND?: InputMaybe<Array<InputMaybe<ComponentRichImageFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<ComponentRichImageFilter>>>;
-  caption?: InputMaybe<Scalars['String']>;
-  caption_contains?: InputMaybe<Scalars['String']>;
-  caption_exists?: InputMaybe<Scalars['Boolean']>;
-  caption_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  caption_not?: InputMaybe<Scalars['String']>;
-  caption_not_contains?: InputMaybe<Scalars['String']>;
-  caption_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  fullWidth?: InputMaybe<Scalars['Boolean']>;
-  fullWidth_exists?: InputMaybe<Scalars['Boolean']>;
-  fullWidth_not?: InputMaybe<Scalars['Boolean']>;
-  image_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type ComponentRichImageLinkingCollections = {
-  __typename?: 'ComponentRichImageLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type ComponentRichImageLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum ComponentRichImageOrder {
-  CaptionAsc = 'caption_ASC',
-  CaptionDesc = 'caption_DESC',
-  FullWidthAsc = 'fullWidth_ASC',
-  FullWidthDesc = 'fullWidth_DESC',
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeo = Entry & {
-  __typename?: 'ComponentSeo';
-  canonicalUrl?: Maybe<Scalars['String']>;
-  contentfulMetadata: ContentfulMetadata;
-  internalName?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<ComponentSeoLinkingCollections>;
-  nofollow?: Maybe<Scalars['Boolean']>;
-  noindex?: Maybe<Scalars['Boolean']>;
-  pageDescription?: Maybe<Scalars['String']>;
-  pageTitle?: Maybe<Scalars['String']>;
-  shareImagesCollection?: Maybe<AssetCollection>;
-  sys: Sys;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoCanonicalUrlArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoInternalNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoNofollowArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoNoindexArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoPageDescriptionArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoPageTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have SEO-related properties to the pages we render [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/componentSeo) */
-export type ComponentSeoShareImagesCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export type ComponentSeoCollection = {
-  __typename?: 'ComponentSeoCollection';
-  items: Array<Maybe<ComponentSeo>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type ComponentSeoFilter = {
-  AND?: InputMaybe<Array<InputMaybe<ComponentSeoFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<ComponentSeoFilter>>>;
-  canonicalUrl?: InputMaybe<Scalars['String']>;
-  canonicalUrl_contains?: InputMaybe<Scalars['String']>;
-  canonicalUrl_exists?: InputMaybe<Scalars['Boolean']>;
-  canonicalUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  canonicalUrl_not?: InputMaybe<Scalars['String']>;
-  canonicalUrl_not_contains?: InputMaybe<Scalars['String']>;
-  canonicalUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  nofollow?: InputMaybe<Scalars['Boolean']>;
-  nofollow_exists?: InputMaybe<Scalars['Boolean']>;
-  nofollow_not?: InputMaybe<Scalars['Boolean']>;
-  noindex?: InputMaybe<Scalars['Boolean']>;
-  noindex_exists?: InputMaybe<Scalars['Boolean']>;
-  noindex_not?: InputMaybe<Scalars['Boolean']>;
-  pageDescription?: InputMaybe<Scalars['String']>;
-  pageDescription_contains?: InputMaybe<Scalars['String']>;
-  pageDescription_exists?: InputMaybe<Scalars['Boolean']>;
-  pageDescription_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  pageDescription_not?: InputMaybe<Scalars['String']>;
-  pageDescription_not_contains?: InputMaybe<Scalars['String']>;
-  pageDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  pageTitle?: InputMaybe<Scalars['String']>;
-  pageTitle_contains?: InputMaybe<Scalars['String']>;
-  pageTitle_exists?: InputMaybe<Scalars['Boolean']>;
-  pageTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  pageTitle_not?: InputMaybe<Scalars['String']>;
-  pageTitle_not_contains?: InputMaybe<Scalars['String']>;
-  pageTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  shareImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type ComponentSeoLinkingCollections = {
-  __typename?: 'ComponentSeoLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
-  pageLandingCollection?: Maybe<PageLandingCollection>;
-};
-
-
-export type ComponentSeoLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type ComponentSeoLinkingCollectionsPageBlogPostCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ComponentSeoLinkingCollectionsPageBlogPostCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type ComponentSeoLinkingCollectionsPageLandingCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ComponentSeoLinkingCollectionsPageLandingCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum ComponentSeoLinkingCollectionsPageBlogPostCollectionOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  PublishedDateAsc = 'publishedDate_ASC',
-  PublishedDateDesc = 'publishedDate_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-export enum ComponentSeoLinkingCollectionsPageLandingCollectionOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-export enum ComponentSeoOrder {
-  CanonicalUrlAsc = 'canonicalUrl_ASC',
-  CanonicalUrlDesc = 'canonicalUrl_DESC',
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  NofollowAsc = 'nofollow_ASC',
-  NofollowDesc = 'nofollow_DESC',
-  NoindexAsc = 'noindex_ASC',
-  NoindexDesc = 'noindex_DESC',
-  PageTitleAsc = 'pageTitle_ASC',
-  PageTitleDesc = 'pageTitle_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
 export type ContentfulMetadata = {
@@ -974,430 +697,16 @@ export type ImageTransformOptions = {
   width?: InputMaybe<Scalars['Dimension']>;
 };
 
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPost = Entry & {
-  __typename?: 'PageBlogPost';
-  author?: Maybe<ComponentAuthor>;
-  content?: Maybe<PageBlogPostContent>;
-  contentfulMetadata: ContentfulMetadata;
-  featuredImage?: Maybe<Asset>;
-  internalName?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<PageBlogPostLinkingCollections>;
-  publishedDate?: Maybe<Scalars['DateTime']>;
-  relatedBlogPostsCollection?: Maybe<PageBlogPostRelatedBlogPostsCollection>;
-  seoFields?: Maybe<ComponentSeo>;
-  shortDescription?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  sys: Sys;
-  title?: Maybe<Scalars['String']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostAuthorArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  where?: InputMaybe<ComponentAuthorFilter>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostContentArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostFeaturedImageArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostInternalNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostPublishedDateArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostRelatedBlogPostsCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<PageBlogPostRelatedBlogPostsCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PageBlogPostFilter>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostSeoFieldsArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  where?: InputMaybe<ComponentSeoFilter>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostShortDescriptionArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostSlugArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To create individual blog posts [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageBlogPost) */
-export type PageBlogPostTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-export type PageBlogPostCollection = {
-  __typename?: 'PageBlogPostCollection';
-  items: Array<Maybe<PageBlogPost>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type PageBlogPostContent = {
-  __typename?: 'PageBlogPostContent';
-  json: Scalars['JSON'];
-  links: PageBlogPostContentLinks;
-};
-
-export type PageBlogPostContentAssets = {
-  __typename?: 'PageBlogPostContentAssets';
-  block: Array<Maybe<Asset>>;
-  hyperlink: Array<Maybe<Asset>>;
-};
-
-export type PageBlogPostContentEntries = {
-  __typename?: 'PageBlogPostContentEntries';
-  block: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  inline: Array<Maybe<Entry>>;
-};
-
-export type PageBlogPostContentLinks = {
-  __typename?: 'PageBlogPostContentLinks';
-  assets: PageBlogPostContentAssets;
-  entries: PageBlogPostContentEntries;
-  resources: PageBlogPostContentResources;
-};
-
-export type PageBlogPostContentResources = {
-  __typename?: 'PageBlogPostContentResources';
-  block: Array<PageBlogPostContentResourcesBlock>;
-  hyperlink: Array<PageBlogPostContentResourcesHyperlink>;
-  inline: Array<PageBlogPostContentResourcesInline>;
-};
-
-export type PageBlogPostContentResourcesBlock = ResourceLink & {
-  __typename?: 'PageBlogPostContentResourcesBlock';
-  sys: ResourceSys;
-};
-
-export type PageBlogPostContentResourcesHyperlink = ResourceLink & {
-  __typename?: 'PageBlogPostContentResourcesHyperlink';
-  sys: ResourceSys;
-};
-
-export type PageBlogPostContentResourcesInline = ResourceLink & {
-  __typename?: 'PageBlogPostContentResourcesInline';
-  sys: ResourceSys;
-};
-
-export type PageBlogPostFilter = {
-  AND?: InputMaybe<Array<InputMaybe<PageBlogPostFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<PageBlogPostFilter>>>;
-  author?: InputMaybe<CfComponentAuthorNestedFilter>;
-  author_exists?: InputMaybe<Scalars['Boolean']>;
-  content_contains?: InputMaybe<Scalars['String']>;
-  content_exists?: InputMaybe<Scalars['Boolean']>;
-  content_not_contains?: InputMaybe<Scalars['String']>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  featuredImage_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  publishedDate?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_exists?: InputMaybe<Scalars['Boolean']>;
-  publishedDate_gt?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_gte?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  publishedDate_lt?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_lte?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_not?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  relatedBlogPosts?: InputMaybe<CfPageBlogPostNestedFilter>;
-  relatedBlogPostsCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
-  seoFields_exists?: InputMaybe<Scalars['Boolean']>;
-  shortDescription?: InputMaybe<Scalars['String']>;
-  shortDescription_contains?: InputMaybe<Scalars['String']>;
-  shortDescription_exists?: InputMaybe<Scalars['Boolean']>;
-  shortDescription_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  shortDescription_not?: InputMaybe<Scalars['String']>;
-  shortDescription_not_contains?: InputMaybe<Scalars['String']>;
-  shortDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug?: InputMaybe<Scalars['String']>;
-  slug_contains?: InputMaybe<Scalars['String']>;
-  slug_exists?: InputMaybe<Scalars['Boolean']>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug_not?: InputMaybe<Scalars['String']>;
-  slug_not_contains?: InputMaybe<Scalars['String']>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars['String']>;
-  title_contains?: InputMaybe<Scalars['String']>;
-  title_exists?: InputMaybe<Scalars['Boolean']>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title_not?: InputMaybe<Scalars['String']>;
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type PageBlogPostLinkingCollections = {
-  __typename?: 'PageBlogPostLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
-  pageLandingCollection?: Maybe<PageLandingCollection>;
-};
-
-
-export type PageBlogPostLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type PageBlogPostLinkingCollectionsPageBlogPostCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<PageBlogPostLinkingCollectionsPageBlogPostCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type PageBlogPostLinkingCollectionsPageLandingCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<PageBlogPostLinkingCollectionsPageLandingCollectionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum PageBlogPostLinkingCollectionsPageBlogPostCollectionOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  PublishedDateAsc = 'publishedDate_ASC',
-  PublishedDateDesc = 'publishedDate_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-export enum PageBlogPostLinkingCollectionsPageLandingCollectionOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
-export enum PageBlogPostOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  PublishedDateAsc = 'publishedDate_ASC',
-  PublishedDateDesc = 'publishedDate_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-export type PageBlogPostRelatedBlogPostsCollection = {
-  __typename?: 'PageBlogPostRelatedBlogPostsCollection';
-  items: Array<Maybe<PageBlogPost>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export enum PageBlogPostRelatedBlogPostsCollectionOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  PublishedDateAsc = 'publishedDate_ASC',
-  PublishedDateDesc = 'publishedDate_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-/** To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageLanding) */
-export type PageLanding = Entry & {
-  __typename?: 'PageLanding';
-  contentfulMetadata: ContentfulMetadata;
-  featuredBlogPost?: Maybe<PageBlogPost>;
-  internalName?: Maybe<Scalars['String']>;
-  linkedFrom?: Maybe<PageLandingLinkingCollections>;
-  seoFields?: Maybe<ComponentSeo>;
-  sys: Sys;
-};
-
-
-/** To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageLanding) */
-export type PageLandingFeaturedBlogPostArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  where?: InputMaybe<PageBlogPostFilter>;
-};
-
-
-/** To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageLanding) */
-export type PageLandingInternalNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-/** To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageLanding) */
-export type PageLandingLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-/** To have an entry point for the app (e.g. Homepage) [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/pageLanding) */
-export type PageLandingSeoFieldsArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  where?: InputMaybe<ComponentSeoFilter>;
-};
-
-export type PageLandingCollection = {
-  __typename?: 'PageLandingCollection';
-  items: Array<Maybe<PageLanding>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
-};
-
-export type PageLandingFilter = {
-  AND?: InputMaybe<Array<InputMaybe<PageLandingFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<PageLandingFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  featuredBlogPost?: InputMaybe<CfPageBlogPostNestedFilter>;
-  featuredBlogPost_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  seoFields?: InputMaybe<CfComponentSeoNestedFilter>;
-  seoFields_exists?: InputMaybe<Scalars['Boolean']>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type PageLandingLinkingCollections = {
-  __typename?: 'PageLandingLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-
-export type PageLandingLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
-
-export enum PageLandingOrder {
-  InternalNameAsc = 'internalName_ASC',
-  InternalNameDesc = 'internalName_DESC',
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
-}
-
 export type Query = {
   __typename?: 'Query';
   _node?: Maybe<_Node>;
+  album?: Maybe<Album>;
+  albumCollection?: Maybe<AlbumCollection>;
   artist?: Maybe<Artist>;
   artistCollection?: Maybe<ArtistCollection>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
-  componentAuthor?: Maybe<ComponentAuthor>;
-  componentAuthorCollection?: Maybe<ComponentAuthorCollection>;
-  componentRichImage?: Maybe<ComponentRichImage>;
-  componentRichImageCollection?: Maybe<ComponentRichImageCollection>;
-  componentSeo?: Maybe<ComponentSeo>;
-  componentSeoCollection?: Maybe<ComponentSeoCollection>;
   entryCollection?: Maybe<EntryCollection>;
-  pageBlogPost?: Maybe<PageBlogPost>;
-  pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
-  pageLanding?: Maybe<PageLanding>;
-  pageLandingCollection?: Maybe<PageLandingCollection>;
   song?: Maybe<Song>;
   songCollection?: Maybe<SongCollection>;
 };
@@ -1407,6 +716,23 @@ export type Query_NodeArgs = {
   id: Scalars['ID'];
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryAlbumArgs = {
+  id: Scalars['String'];
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryAlbumCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<Array<InputMaybe<AlbumOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<AlbumFilter>;
 };
 
 
@@ -1444,57 +770,6 @@ export type QueryAssetCollectionArgs = {
 };
 
 
-export type QueryComponentAuthorArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryComponentAuthorCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ComponentAuthorOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<ComponentAuthorFilter>;
-};
-
-
-export type QueryComponentRichImageArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryComponentRichImageCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ComponentRichImageOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<ComponentRichImageFilter>;
-};
-
-
-export type QueryComponentSeoArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryComponentSeoCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<ComponentSeoOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<ComponentSeoFilter>;
-};
-
-
 export type QueryEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
@@ -1502,40 +777,6 @@ export type QueryEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<EntryFilter>;
-};
-
-
-export type QueryPageBlogPostArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryPageBlogPostCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<PageBlogPostOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PageBlogPostFilter>;
-};
-
-
-export type QueryPageLandingArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type QueryPageLandingCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  order?: InputMaybe<Array<InputMaybe<PageLandingOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<PageLandingFilter>;
 };
 
 
@@ -1568,22 +809,21 @@ export type ResourceSys = {
 /** Song page with all the information [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/song) */
 export type Song = Entry & {
   __typename?: 'Song';
-  artist?: Maybe<Artist>;
+  album?: Maybe<Entry>;
   content?: Maybe<SongContent>;
   contentfulMetadata: ContentfulMetadata;
   internalName?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<SongLinkingCollections>;
+  name?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   sys: Sys;
-  textTest?: Maybe<Scalars['String']>;
 };
 
 
 /** Song page with all the information [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/song) */
-export type SongArtistArgs = {
+export type SongAlbumArgs = {
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
-  where?: InputMaybe<ArtistFilter>;
 };
 
 
@@ -1606,13 +846,13 @@ export type SongLinkedFromArgs = {
 
 
 /** Song page with all the information [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/song) */
-export type SongSlugArgs = {
+export type SongNameArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
 
 /** Song page with all the information [See type definition](https://app.contentful.com/spaces/ajkg91lqedzt/content_types/song) */
-export type SongTextTestArgs = {
+export type SongSlugArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
@@ -1675,8 +915,7 @@ export type SongContentResourcesInline = ResourceLink & {
 export type SongFilter = {
   AND?: InputMaybe<Array<InputMaybe<SongFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<SongFilter>>>;
-  artist?: InputMaybe<CfArtistNestedFilter>;
-  artist_exists?: InputMaybe<Scalars['Boolean']>;
+  album_exists?: InputMaybe<Scalars['Boolean']>;
   content_contains?: InputMaybe<Scalars['String']>;
   content_exists?: InputMaybe<Scalars['Boolean']>;
   content_not_contains?: InputMaybe<Scalars['String']>;
@@ -1688,6 +927,13 @@ export type SongFilter = {
   internalName_not?: InputMaybe<Scalars['String']>;
   internalName_not_contains?: InputMaybe<Scalars['String']>;
   internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  name_contains?: InputMaybe<Scalars['String']>;
+  name_exists?: InputMaybe<Scalars['Boolean']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  name_not?: InputMaybe<Scalars['String']>;
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   slug?: InputMaybe<Scalars['String']>;
   slug_contains?: InputMaybe<Scalars['String']>;
   slug_exists?: InputMaybe<Scalars['Boolean']>;
@@ -1696,13 +942,6 @@ export type SongFilter = {
   slug_not_contains?: InputMaybe<Scalars['String']>;
   slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
-  textTest?: InputMaybe<Scalars['String']>;
-  textTest_contains?: InputMaybe<Scalars['String']>;
-  textTest_exists?: InputMaybe<Scalars['Boolean']>;
-  textTest_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  textTest_not?: InputMaybe<Scalars['String']>;
-  textTest_not_contains?: InputMaybe<Scalars['String']>;
-  textTest_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type SongLinkingCollections = {
@@ -1746,6 +985,8 @@ export enum SongLinkingCollectionsArtistCollectionOrder {
 export enum SongOrder {
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -1755,9 +996,7 @@ export enum SongOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TextTestAsc = 'textTest_ASC',
-  TextTestDesc = 'textTest_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
 export type Sys = {
@@ -1814,6 +1053,9 @@ export type _Node = {
 export type CfArtistNestedFilter = {
   AND?: InputMaybe<Array<InputMaybe<CfArtistNestedFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<CfArtistNestedFilter>>>;
+  content_contains?: InputMaybe<Scalars['String']>;
+  content_exists?: InputMaybe<Scalars['Boolean']>;
+  content_not_contains?: InputMaybe<Scalars['String']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   internalName?: InputMaybe<Scalars['String']>;
   internalName_contains?: InputMaybe<Scalars['String']>;
@@ -1833,10 +1075,13 @@ export type CfArtistNestedFilter = {
   sys?: InputMaybe<SysFilter>;
 };
 
-export type CfComponentAuthorNestedFilter = {
-  AND?: InputMaybe<Array<InputMaybe<CfComponentAuthorNestedFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<CfComponentAuthorNestedFilter>>>;
-  avatar_exists?: InputMaybe<Scalars['Boolean']>;
+export type CfSongNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfSongNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfSongNestedFilter>>>;
+  album_exists?: InputMaybe<Scalars['Boolean']>;
+  content_contains?: InputMaybe<Scalars['String']>;
+  content_exists?: InputMaybe<Scalars['Boolean']>;
+  content_not_contains?: InputMaybe<Scalars['String']>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   internalName?: InputMaybe<Scalars['String']>;
   internalName_contains?: InputMaybe<Scalars['String']>;
@@ -1852,85 +1097,6 @@ export type CfComponentAuthorNestedFilter = {
   name_not?: InputMaybe<Scalars['String']>;
   name_not_contains?: InputMaybe<Scalars['String']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type CfComponentSeoNestedFilter = {
-  AND?: InputMaybe<Array<InputMaybe<CfComponentSeoNestedFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<CfComponentSeoNestedFilter>>>;
-  canonicalUrl?: InputMaybe<Scalars['String']>;
-  canonicalUrl_contains?: InputMaybe<Scalars['String']>;
-  canonicalUrl_exists?: InputMaybe<Scalars['Boolean']>;
-  canonicalUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  canonicalUrl_not?: InputMaybe<Scalars['String']>;
-  canonicalUrl_not_contains?: InputMaybe<Scalars['String']>;
-  canonicalUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  nofollow?: InputMaybe<Scalars['Boolean']>;
-  nofollow_exists?: InputMaybe<Scalars['Boolean']>;
-  nofollow_not?: InputMaybe<Scalars['Boolean']>;
-  noindex?: InputMaybe<Scalars['Boolean']>;
-  noindex_exists?: InputMaybe<Scalars['Boolean']>;
-  noindex_not?: InputMaybe<Scalars['Boolean']>;
-  pageDescription?: InputMaybe<Scalars['String']>;
-  pageDescription_contains?: InputMaybe<Scalars['String']>;
-  pageDescription_exists?: InputMaybe<Scalars['Boolean']>;
-  pageDescription_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  pageDescription_not?: InputMaybe<Scalars['String']>;
-  pageDescription_not_contains?: InputMaybe<Scalars['String']>;
-  pageDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  pageTitle?: InputMaybe<Scalars['String']>;
-  pageTitle_contains?: InputMaybe<Scalars['String']>;
-  pageTitle_exists?: InputMaybe<Scalars['Boolean']>;
-  pageTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  pageTitle_not?: InputMaybe<Scalars['String']>;
-  pageTitle_not_contains?: InputMaybe<Scalars['String']>;
-  pageTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  shareImagesCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  sys?: InputMaybe<SysFilter>;
-};
-
-export type CfPageBlogPostNestedFilter = {
-  AND?: InputMaybe<Array<InputMaybe<CfPageBlogPostNestedFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<CfPageBlogPostNestedFilter>>>;
-  author_exists?: InputMaybe<Scalars['Boolean']>;
-  content_contains?: InputMaybe<Scalars['String']>;
-  content_exists?: InputMaybe<Scalars['Boolean']>;
-  content_not_contains?: InputMaybe<Scalars['String']>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  featuredImage_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  publishedDate?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_exists?: InputMaybe<Scalars['Boolean']>;
-  publishedDate_gt?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_gte?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  publishedDate_lt?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_lte?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_not?: InputMaybe<Scalars['DateTime']>;
-  publishedDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  relatedBlogPostsCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  seoFields_exists?: InputMaybe<Scalars['Boolean']>;
-  shortDescription?: InputMaybe<Scalars['String']>;
-  shortDescription_contains?: InputMaybe<Scalars['String']>;
-  shortDescription_exists?: InputMaybe<Scalars['Boolean']>;
-  shortDescription_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  shortDescription_not?: InputMaybe<Scalars['String']>;
-  shortDescription_not_contains?: InputMaybe<Scalars['String']>;
-  shortDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   slug?: InputMaybe<Scalars['String']>;
   slug_contains?: InputMaybe<Scalars['String']>;
   slug_exists?: InputMaybe<Scalars['Boolean']>;
@@ -1939,146 +1105,11 @@ export type CfPageBlogPostNestedFilter = {
   slug_not_contains?: InputMaybe<Scalars['String']>;
   slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars['String']>;
-  title_contains?: InputMaybe<Scalars['String']>;
-  title_exists?: InputMaybe<Scalars['Boolean']>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title_not?: InputMaybe<Scalars['String']>;
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
-
-export type CfSongNestedFilter = {
-  AND?: InputMaybe<Array<InputMaybe<CfSongNestedFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<CfSongNestedFilter>>>;
-  artist_exists?: InputMaybe<Scalars['Boolean']>;
-  content_contains?: InputMaybe<Scalars['String']>;
-  content_exists?: InputMaybe<Scalars['Boolean']>;
-  content_not_contains?: InputMaybe<Scalars['String']>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  internalName?: InputMaybe<Scalars['String']>;
-  internalName_contains?: InputMaybe<Scalars['String']>;
-  internalName_exists?: InputMaybe<Scalars['Boolean']>;
-  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  internalName_not?: InputMaybe<Scalars['String']>;
-  internalName_not_contains?: InputMaybe<Scalars['String']>;
-  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug?: InputMaybe<Scalars['String']>;
-  slug_contains?: InputMaybe<Scalars['String']>;
-  slug_exists?: InputMaybe<Scalars['Boolean']>;
-  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  slug_not?: InputMaybe<Scalars['String']>;
-  slug_not_contains?: InputMaybe<Scalars['String']>;
-  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  sys?: InputMaybe<SysFilter>;
-  textTest?: InputMaybe<Scalars['String']>;
-  textTest_contains?: InputMaybe<Scalars['String']>;
-  textTest_exists?: InputMaybe<Scalars['Boolean']>;
-  textTest_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  textTest_not?: InputMaybe<Scalars['String']>;
-  textTest_not_contains?: InputMaybe<Scalars['String']>;
-  textTest_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type AuthorFieldsFragment = { __typename: 'ComponentAuthor', name?: string | null, sys: { __typename?: 'Sys', id: string }, avatar?: (
-    { __typename?: 'Asset' }
-    & ImageFieldsFragment
-  ) | null };
 
 export type ImageFieldsFragment = { __typename: 'Asset', title?: string | null, description?: string | null, width?: number | null, height?: number | null, url?: string | null, contentType?: string | null, sys: { __typename?: 'Sys', id: string } };
 
-export type ReferencePageBlogPostFieldsFragment = { __typename: 'PageBlogPost', slug?: string | null, publishedDate?: any | null, title?: string | null, shortDescription?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, author?: (
-    { __typename?: 'ComponentAuthor' }
-    & AuthorFieldsFragment
-  ) | null, featuredImage?: (
-    { __typename?: 'Asset' }
-    & ImageFieldsFragment
-  ) | null };
-
-export type PageBlogPostFieldsFragment = { __typename: 'PageBlogPost', internalName?: string | null, slug?: string | null, publishedDate?: any | null, title?: string | null, shortDescription?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
-    { __typename?: 'ComponentSeo' }
-    & SeoFieldsFragment
-  ) | null, author?: (
-    { __typename?: 'ComponentAuthor' }
-    & AuthorFieldsFragment
-  ) | null, featuredImage?: (
-    { __typename?: 'Asset' }
-    & ImageFieldsFragment
-  ) | null, content?: { __typename?: 'PageBlogPostContent', json: any, links: { __typename?: 'PageBlogPostContentLinks', entries: { __typename?: 'PageBlogPostContentEntries', block: Array<{ __typename?: 'Artist' } | { __typename?: 'ComponentAuthor' } | (
-          { __typename?: 'ComponentRichImage' }
-          & RichImageFieldsFragment
-        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | { __typename?: 'Song' } | null> } } } | null, relatedBlogPostsCollection?: { __typename?: 'PageBlogPostRelatedBlogPostsCollection', items: Array<(
-      { __typename?: 'PageBlogPost' }
-      & ReferencePageBlogPostFieldsFragment
-    ) | null> } | null };
-
-export type PageBlogPostQueryVariables = Exact<{
-  slug: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageBlogPostQuery = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<(
-      { __typename?: 'PageBlogPost' }
-      & PageBlogPostFieldsFragment
-    ) | null> } | null };
-
-export type PageBlogPostCollectionQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  limit?: InputMaybe<Scalars['Int']>;
-  order?: InputMaybe<Array<InputMaybe<PageBlogPostOrder>> | InputMaybe<PageBlogPostOrder>>;
-  where?: InputMaybe<PageBlogPostFilter>;
-}>;
-
-
-export type PageBlogPostCollectionQuery = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<(
-      { __typename?: 'PageBlogPost' }
-      & PageBlogPostFieldsFragment
-    ) | null> } | null };
-
-export type PageLandingFieldsFragment = { __typename: 'PageLanding', internalName?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, seoFields?: (
-    { __typename?: 'ComponentSeo' }
-    & SeoFieldsFragment
-  ) | null, featuredBlogPost?: (
-    { __typename?: 'PageBlogPost' }
-    & ReferencePageBlogPostFieldsFragment
-  ) | null };
-
-export type PageLandingQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageLandingQuery = { __typename?: 'Query', pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<(
-      { __typename?: 'PageLanding' }
-      & PageLandingFieldsFragment
-    ) | null> } | null };
-
-export type PageLandingCollectionQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-}>;
-
-
-export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<(
-      { __typename?: 'PageLanding' }
-      & PageLandingFieldsFragment
-    ) | null> } | null };
-
-export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', internalName?: string | null, caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
-    { __typename?: 'Asset' }
-    & ImageFieldsFragment
-  ) | null };
-
-export type SeoFieldsFragment = { __typename: 'ComponentSeo', pageTitle?: string | null, pageDescription?: string | null, canonicalUrl?: string | null, nofollow?: boolean | null, noindex?: boolean | null, shareImagesCollection?: { __typename?: 'AssetCollection', items: Array<(
-      { __typename?: 'Asset' }
-      & ImageFieldsFragment
-    ) | null> } | null };
-
-export type SitemapPagesFieldsFragment = { __typename?: 'Query', pageBlogPostCollection?: { __typename?: 'PageBlogPostCollection', items: Array<{ __typename?: 'PageBlogPost', slug?: string | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null, pageLandingCollection?: { __typename?: 'PageLandingCollection', items: Array<{ __typename?: 'PageLanding', sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
+export type SitemapPagesFieldsFragment = { __typename?: 'Query', songCollection?: { __typename?: 'SongCollection', items: Array<{ __typename?: 'Song', slug?: string | null, sys: { __typename?: 'Sys', publishedAt?: any | null } } | null> } | null };
 
 export type SitemapPagesQueryVariables = Exact<{
   locale: Scalars['String'];
@@ -2090,10 +1121,7 @@ export type SitemapPagesQuery = (
   & SitemapPagesFieldsFragment
 );
 
-export type SongFieldsFragment = { __typename: 'Song', internalName?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, content?: { __typename?: 'SongContent', json: any, links: { __typename?: 'SongContentLinks', entries: { __typename?: 'SongContentEntries', block: Array<{ __typename?: 'Artist' } | { __typename?: 'ComponentAuthor' } | (
-          { __typename?: 'ComponentRichImage' }
-          & RichImageFieldsFragment
-        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | { __typename?: 'Song' } | null> } } } | null };
+export type SongFieldsFragment = { __typename: 'Song', internalName?: string | null, slug?: string | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, content?: { __typename?: 'SongContent', json: any } | null };
 
 export type SongQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -2135,132 +1163,11 @@ export const ImageFieldsFragmentDoc = gql`
   contentType
 }
     `;
-export const SeoFieldsFragmentDoc = gql`
-    fragment SeoFields on ComponentSeo {
-  __typename
-  pageTitle
-  pageDescription
-  canonicalUrl
-  nofollow
-  noindex
-  shareImagesCollection(limit: 3, locale: $locale) {
-    items {
-      ...ImageFields
-    }
-  }
-}
-    `;
-export const AuthorFieldsFragmentDoc = gql`
-    fragment AuthorFields on ComponentAuthor {
-  __typename
-  sys {
-    id
-  }
-  name
-  avatar {
-    ...ImageFields
-  }
-}
-    `;
-export const RichImageFieldsFragmentDoc = gql`
-    fragment RichImageFields on ComponentRichImage {
-  __typename
-  internalName
-  sys {
-    id
-  }
-  image {
-    ...ImageFields
-  }
-  caption
-  fullWidth
-}
-    `;
-export const ReferencePageBlogPostFieldsFragmentDoc = gql`
-    fragment ReferencePageBlogPostFields on PageBlogPost {
-  __typename
-  sys {
-    id
-    spaceId
-  }
-  slug
-  author {
-    ...AuthorFields
-  }
-  publishedDate
-  title
-  shortDescription
-  featuredImage {
-    ...ImageFields
-  }
-}
-    `;
-export const PageBlogPostFieldsFragmentDoc = gql`
-    fragment PageBlogPostFields on PageBlogPost {
-  __typename
-  sys {
-    id
-    spaceId
-  }
-  internalName
-  seoFields {
-    ...SeoFields
-  }
-  slug
-  author {
-    ...AuthorFields
-  }
-  publishedDate
-  title
-  shortDescription
-  featuredImage {
-    ...ImageFields
-  }
-  content {
-    json
-    links {
-      entries {
-        block {
-          ...RichImageFields
-        }
-      }
-    }
-  }
-  relatedBlogPostsCollection(limit: 2) {
-    items {
-      ...ReferencePageBlogPostFields
-    }
-  }
-}
-    `;
-export const PageLandingFieldsFragmentDoc = gql`
-    fragment PageLandingFields on PageLanding {
-  __typename
-  sys {
-    id
-    spaceId
-  }
-  internalName
-  seoFields {
-    ...SeoFields
-  }
-  featuredBlogPost {
-    ...ReferencePageBlogPostFields
-  }
-}
-    `;
 export const SitemapPagesFieldsFragmentDoc = gql`
     fragment sitemapPagesFields on Query {
-  pageBlogPostCollection(limit: 100, locale: $locale) {
+  songCollection(limit: 100, locale: $locale) {
     items {
       slug
-      sys {
-        publishedAt
-      }
-    }
-  }
-  pageLandingCollection(limit: 1, locale: $locale) {
-    items {
       sys {
         publishedAt
       }
@@ -2279,81 +1186,9 @@ export const SongFieldsFragmentDoc = gql`
   slug
   content {
     json
-    links {
-      entries {
-        block {
-          ...RichImageFields
-        }
-      }
-    }
   }
 }
     `;
-export const PageBlogPostDocument = gql`
-    query pageBlogPost($slug: String!, $locale: String, $preview: Boolean) {
-  pageBlogPostCollection(
-    limit: 1
-    where: {slug: $slug}
-    locale: $locale
-    preview: $preview
-  ) {
-    items {
-      ...PageBlogPostFields
-    }
-  }
-}
-    ${PageBlogPostFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${AuthorFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
-${ReferencePageBlogPostFieldsFragmentDoc}`;
-export const PageBlogPostCollectionDocument = gql`
-    query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
-  pageBlogPostCollection(
-    limit: $limit
-    locale: $locale
-    preview: $preview
-    order: $order
-    where: $where
-  ) {
-    items {
-      ...PageBlogPostFields
-    }
-  }
-}
-    ${PageBlogPostFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${AuthorFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
-${ReferencePageBlogPostFieldsFragmentDoc}`;
-export const PageLandingDocument = gql`
-    query pageLanding($locale: String, $preview: Boolean) {
-  pageLandingCollection(limit: 1, locale: $locale, preview: $preview) {
-    items {
-      ...PageLandingFields
-    }
-  }
-}
-    ${PageLandingFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${ReferencePageBlogPostFieldsFragmentDoc}
-${AuthorFieldsFragmentDoc}`;
-export const PageLandingCollectionDocument = gql`
-    query pageLandingCollection($locale: String, $preview: Boolean) {
-  pageLandingCollection(limit: 100, locale: $locale, preview: $preview) {
-    items {
-      ...PageLandingFields
-    }
-  }
-}
-    ${PageLandingFieldsFragmentDoc}
-${SeoFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}
-${ReferencePageBlogPostFieldsFragmentDoc}
-${AuthorFieldsFragmentDoc}`;
 export const SitemapPagesDocument = gql`
     query sitemapPages($locale: String!) {
   ...sitemapPagesFields
@@ -2372,9 +1207,7 @@ export const SongDocument = gql`
     }
   }
 }
-    ${SongFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}`;
+    ${SongFieldsFragmentDoc}`;
 export const SongCollectionDocument = gql`
     query songCollection($locale: String, $preview: Boolean, $limit: Int, $order: [SongOrder], $where: SongFilter) {
   songCollection(
@@ -2389,9 +1222,7 @@ export const SongCollectionDocument = gql`
     }
   }
 }
-    ${SongFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
-${ImageFieldsFragmentDoc}`;
+    ${SongFieldsFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -2400,18 +1231,6 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    pageBlogPost(variables: PageBlogPostQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageBlogPostQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageBlogPostQuery>(PageBlogPostDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageBlogPost', 'query');
-    },
-    pageBlogPostCollection(variables?: PageBlogPostCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageBlogPostCollectionQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageBlogPostCollectionQuery>(PageBlogPostCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageBlogPostCollection', 'query');
-    },
-    pageLanding(variables?: PageLandingQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingQuery>(PageLandingDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLanding', 'query');
-    },
-    pageLandingCollection(variables?: PageLandingCollectionQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageLandingCollectionQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageLandingCollectionQuery>(PageLandingCollectionDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'pageLandingCollection', 'query');
-    },
     sitemapPages(variables: SitemapPagesQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SitemapPagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<SitemapPagesQuery>(SitemapPagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'sitemapPages', 'query');
     },
