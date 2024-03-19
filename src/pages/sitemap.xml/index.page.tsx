@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
             path.join(localeForUrl || '', item?.slug || ''),
             process.env.NEXT_PUBLIC_BASE_URL!,
           ).toString();
-          return item && !item.seoFields?.excludeFromSitemap
+          return item && !item.slug
             ? {
                 loc: url,
                 lastmod: item.sys.publishedAt,
